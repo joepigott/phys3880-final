@@ -5,8 +5,8 @@ import numpy as np
 
 # l1 data is relative pressure. l2a data will be the fft of the raw l1 data.
 
-# sample rate is 2 per minute. this may change
-SAMPLE_RATE = 2
+# SAMPLE_RATE = 1 # 1 per minute before 2024-04-11
+SAMPLE_RATE = 2 # 2 per minute past 2024-04-11
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--output", type=str, required=True)

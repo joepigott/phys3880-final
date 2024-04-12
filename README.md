@@ -7,7 +7,9 @@ for my use case.
 ## Can AGWs be detected from ground-level pressure measurements?
 
 The purpose of this project is to see if ground-level pressure measurements can
-effectively detect the presence of an Atmospheric Gravity Wave (AGW).
+effectively detect the presence of an Atmospheric Gravity Wave (AGW). I have
+always been more of a theory guy, so I decided to step out of my comfort zone
+and choose a project that is almost entirely experimental and analysis-based.
 
 ## Experimental Setup
 
@@ -25,7 +27,7 @@ Level 0 data is raw data obtained from the sensor. Files will usually include a
 timestamp, and optionally an hour index if the dataset has been split. For 
 example, the file
 ```
-l0_pressure_032424-040924_4.csv
+l0_pressure_2024-03-24_2024-04-09_4.csv
 ```
 is fourth section of raw pressure data between 3/24/24 and 4/9/24. The hour
 index may represent different chunks of time, depending on how analysis goes;
