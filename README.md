@@ -57,5 +57,25 @@ in frequency space.
 
 ### Level 3
 
-Level 3 data contains the relative spectrum of level 2 as compared to an
-average spectrum (that is yet to be defined).
+Level 3 data contains the spectrum of a level 2 dataset with a spectral average
+subtracted off. For example, an average spectrum of the datasets between 
+3/24/24 and 4/09/24 can be calculated, and this will be subtracted from each
+dataset's spectrum to highlight spectral differences from the average.
+
+### Level 4
+
+Level 4 data contains the spectral peaks in the relevant frequency range (~0.1
+to 0.033 cycles/minute) of each dataset chunk. This is what is used in the
+final analysis: if we find a spectral peak that is well above average, we can
+do some testing on it to find out whether that peak is statistically 
+significant.
+
+### Analysis
+
+Unfortunately, I was unable to come up with a mathematically rigorous method of
+determining statistical significance. In the end, the final analysis was to
+take the level 4 data and check for values that are more than three standard
+deviations above the average. This checks for any strong outliers that could be
+wave detections, but also idealizes many things about the data (such that it is
+Gaussian, which it is not). This seems to be good enough, but it does bug me
+that I couldn't come up with something more solid.

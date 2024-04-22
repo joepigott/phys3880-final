@@ -1,12 +1,12 @@
+# convert level 1 (relative) data to level 2a (fft) data
+
 import argparse
 import pandas as pd
 import scipy
 import numpy as np
 
-# l1 data is relative pressure. l2a data will be the fft of the raw l1 data.
-
-# SAMPLE_RATE = 1 # 1 per minute before 2024-04-11
-SAMPLE_RATE = 2 # 2 per minute past 2024-04-11
+SAMPLE_RATE = 1 # 1 per minute before 2024-04-11
+# SAMPLE_RATE = 2 # 2 per minute past 2024-04-11
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--output", type=str, required=True)
@@ -20,7 +20,7 @@ first = True
 for file in args.files:
     raw = pd.read_csv(file)
 
-    values = raw["rel_pressure"].values
+    values = raw["value"].values
 
     # perform fft
     fft = scipy.fft.rfft(values)

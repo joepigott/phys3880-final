@@ -1,7 +1,7 @@
+# convert level 0 (raw) data to level 1 (relative) data
+
 import argparse
 import pandas as pd
-
-# level 0 data is raw, level 1 data is relative. simple conversion
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--output", type=str, required=True)
@@ -18,10 +18,12 @@ for file in args.file:
     raw = pd.read_csv(file)
 
     values = raw["value"] - raw["value"].mean()
+    dates = raw["created_at"]
 
     # write data
     final = pd.DataFrame({
-        "rel_pressure": values,
+        "value": values,
+        "created_at": dates
     })
 
     if "start" in raw.columns:

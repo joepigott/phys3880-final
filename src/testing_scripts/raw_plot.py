@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
 
-matplotlib.rcParams.update({'font.size': 12})
+matplotlib.rcParams.update({'font.size': 14})
 
 # load the data
 data = pd.read_csv(sys.argv[1])
@@ -15,6 +15,7 @@ dates = data["created_at"]
 
 # convert from strings to dates
 dates = [datetime.strptime(d, "%Y-%m-%d %H:%M:%S %Z") for d in dates]
+print(dates[0])
 
 # plot data
 plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))

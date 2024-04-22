@@ -26,9 +26,9 @@ else:
 magnitude = data["magnitude"].values
 frequencies = data["freq"].values
 
-plt.plot(frequencies[:100], magnitude[:100])
+plt.plot(frequencies, magnitude)
 plt.title(title)
 plt.xlabel("Frequency (cycles/minute)")
-plt.ylabel("Magnitude")
-plt.ylim(-1, 1) # for plotting level 4 data
+plt.ylabel("Magnitude (hPa)")
+
 plt.show()

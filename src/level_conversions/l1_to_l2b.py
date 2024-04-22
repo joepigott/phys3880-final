@@ -1,15 +1,15 @@
+# convert level 1 (relative) data to level 2b (padded fft) data
+
 import argparse
 import pandas as pd
 import scipy
 import numpy as np
 
-# l1 data is relative pressure. l2b data will be the fft of the padded l1 data.
-
-# sample rate is 1 per minute. this may change
-SAMPLE_RATE = 2
+SAMPLE_RATE = 1 # 1 per minute before 2024-04-11
+# SAMPLE_RATE = 2 # 2 per minute past 2024-04-11
 
 # the number of times the data will be padded
-PADDING_FACTOR = 10
+PADDING_FACTOR = 5
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--output", type=str, required=True)
@@ -23,7 +23,7 @@ first = True
 for file in args.files:
     raw = pd.read_csv(file)
 
-    values = raw["rel_pressure"].values
+    values = raw["value"].values
     values = np.pad(values, (0, len(values) * PADDING_FACTOR - len(values)), "constant")
 
     # perform fft
